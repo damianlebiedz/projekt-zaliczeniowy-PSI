@@ -1,2 +1,2 @@
-# projekt-zaliczeniowy-PSI
+# sentiment-analysis
 Projekt zaliczeniowy: Projektowanie Systemów Informatycznych
