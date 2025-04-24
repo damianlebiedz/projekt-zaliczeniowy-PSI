@@ -1,7 +1,6 @@
-
-import pandas as pd
-import matplotlib.pyplot as plt
-import yfinance as yf
-import wordcloud as wcl
-import tweepy as tw
-import seaborn as sns
+pandas
+matplotlib
+yfinance
+wordcloud
+snscrape
+requests
