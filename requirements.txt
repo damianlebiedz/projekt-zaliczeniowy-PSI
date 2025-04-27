@@ -2,5 +2,11 @@ pandas
 matplotlib
 yfinance
 wordcloud
-snscrape
 requests
+python-dotenv
+praw
+transformers
+torch
+huggingface_hub[hf_xet]
+nltk
+scikit-learn
