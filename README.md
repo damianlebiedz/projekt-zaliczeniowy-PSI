@@ -1,4 +1,4 @@
-# Sentiment analysis (in progress)
+# Sentiment analysis
 
 This project is created to analyze sentiment of textual data from X (ex. Twitter) in days of high volatility on US stock market measured by VIX index.
 It utilizes data science techniques including sentiment analysis with DistilBERT model, word frequency exploration, and data visualization (charts, word clouds).
@@ -21,18 +21,7 @@ The project adheres to Reproducible Research standards and software engineering 
 ## Technologies
 - Python 3.13
 - Jupyter Notebook
-
-Libraries:
-- pandas
-- matplotlib
-- yfinance
-- wordcloud
-- requests
-- python-dotenv
-- praw
-- transformers
-- tqdm
-- torch
+- DistilBERT
 
 ## Setup
 > [!NOTE]
@@ -81,6 +70,34 @@ REDDIT_CLIENT_SECRET=your_client_secret_here
 ```
 
 ## Installation
+
+### 1. Install Python (3.13 recommended)
+If Python is not installed on your system, follow the installation instructions on the [official Python website](https://www.python.org/downloads/).
+### 2. Clone the Project Repository using Git and navigate to the project directory:
+```
+git clone https://github.com/damianlebiedz/sentiment-analysis.git
+cd sentiment-analysis
+```
+### 3. Install the required Python packages:
+```
+pip install -r requirements.txt
+```
+### 4. Run the Project:
+```
+python main.py
+```
+### Alternatively you can run the Project via Jupyter Notebook:
+
+1. Install Jupyter Notebook:
+```
+pip install notebook
+```
+2. Run the notebook:
+```
+jupyter notebook
+```
+> [!IMPORTANT]
+> You must be inside the project directory to launch `jupyter notebook`!
 
 ## View
 
