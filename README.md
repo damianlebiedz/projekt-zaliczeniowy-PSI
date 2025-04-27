@@ -1,7 +1,7 @@
 # Sentiment analysis
 
 This project is created to analyze sentiment of textual data from X (ex. Twitter) in days of high volatility on US stock market measured by VIX index.
-It utilizes data science techniques including sentiment analysis with DistilBERT model, word frequency exploration, and data visualization (charts, word clouds).
+It utilizes data science techniques including sentiment analysis with DistilBERT model, word frequency exploration, and data visualization (charts, wordclouds, UMAP).
 The project adheres to Reproducible Research standards and software engineering best practices.
 
 > [!TIP]
@@ -92,7 +92,7 @@ python main.py
 ```
 pip install notebook
 ```
-2. Run the notebook:
+2. Launch the notebook:
 ```
 jupyter notebook
 ```
