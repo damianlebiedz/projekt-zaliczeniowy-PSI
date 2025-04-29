@@ -5,7 +5,7 @@ It utilizes data science techniques including sentiment analysis with DistilBERT
 The project adheres to Reproducible Research standards.
 
 > [!TIP]
-> In SRS.md file you can check the Software Requirements Specification of the project.
+> In SRS.pdf file you can check the Software Requirements Specification of the project.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
