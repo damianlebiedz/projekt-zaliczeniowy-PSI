@@ -1,6 +1,6 @@
 # Sentiment analysis
 
-This project is created to analyze sentiment of textual data from Reddit r/wallstreetbets threads in days of high volatility on US stock market measured by VIX index.
+This project is created to analyze sentiment of textual data from Reddit r/wallstreetbets threads in day of the highest volatility on US stock market measured by VIX index.
 It utilizes data science techniques including sentiment analysis with DistilBERT model and data visualization (charts, wordclouds, UMAP).
 The project adheres to Reproducible Research standards and software engineering best practices.
 
