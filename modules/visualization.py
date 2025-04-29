@@ -1,6 +1,7 @@
-import matplotlib.pyplot as plt
-from wordcloud import WordCloud, STOPWORDS
+import matplotlib.colors as mcolors
+from wordcloud import STOPWORDS
 import re
+import numpy as np
 
 
 STOPWORDS_CUSTOM = set(STOPWORDS)
@@ -22,40 +23,59 @@ def stock_plot(timeframe, column, ticker):
     except Exception as e:
         print(f"Error in stock_plot: {e}")
 
-def plot_wordcloud(df):
-    text_series = df['text'].astype(str).tolist()
-    all_text = ' '.join(text_series)
-    tokens = WORD_REGEX.findall(all_text)
-    combined = ' '.join(tokens)
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 
-    wc = WordCloud(
-        width=800,
-        height=400,
-        background_color='white',
-        stopwords=STOPWORDS_CUSTOM
-    ).generate(combined)
-
-    plt.figure(figsize=(10, 5))
-    plt.imshow(wc, interpolation='bilinear')
-    plt.axis('off')
-    plt.show()
-
-def plot_cluster_wordcloud(df):
-    for cluster_id in sorted(df['cluster'].unique()):
-        texts = df.loc[df['cluster'] == cluster_id, 'text'].astype(str).tolist()
-        all_text = ' '.join(texts)
-        tokens = WORD_REGEX.findall(all_text)
-        combined = ' '.join(tokens)
+def plot_wordcloud(df, date, text_column='text', cluster_column=None, stopwords=None, word_regex=None):
+    def create_wordcloud(texts, title):
+        all_text = ' '.join(map(str, texts))
+        if word_regex:
+            tokens = word_regex.findall(all_text)
+            combined = ' '.join(tokens)
+        else:
+            combined = all_text
 
         wc = WordCloud(
             width=800,
             height=400,
             background_color='white',
-            stopwords=STOPWORDS_CUSTOM
+            stopwords=stopwords
         ).generate(combined)
 
         plt.figure(figsize=(10, 5))
         plt.imshow(wc, interpolation='bilinear')
         plt.axis('off')
-        plt.title(f"WordCloud for Cluster {cluster_id}")
+        if title:
+            plt.title(title)
         plt.show()
+
+    if cluster_column:
+        for cluster_id in sorted(df[cluster_column].unique()):
+            texts = df.loc[df[cluster_column] == cluster_id, text_column]
+            create_wordcloud(texts, title=f"WordCloud for Cluster {cluster_id}")
+    else:
+        texts = df[text_column]
+        create_wordcloud(texts, title=f"Global WordCloud for the day {date}")
+
+
+def plot_sentiment(sentiment, date):
+    if sentiment < -1 or sentiment > 1:
+        raise ValueError("Sentiment value outside the range [-1, 1]")
+
+    cmap = mcolors.LinearSegmentedColormap.from_list(
+        'sentiment_cmap',
+        [(0, 'red'), (0.5, 'gray'), (1, 'green')]
+    )
+
+    fig, ax = plt.subplots(figsize=(8, 2))
+
+    gradient = np.linspace(-1, 1, 500)
+    gradient = np.vstack((gradient, gradient))
+
+    ax.imshow(gradient, aspect='auto', cmap=cmap, extent=[-1, 1, -0.5, 0.5])
+    ax.axvline(sentiment, color='black', linewidth=3)
+
+    ax.set_yticks([])
+    ax.set_xlim(-1, 1)
+    ax.set_title(f'Overall weighted sentiment for the day {date}: {sentiment:.3f}')
+    plt.show()

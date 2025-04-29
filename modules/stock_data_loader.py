@@ -36,14 +36,12 @@ def load_stock_timeframe(ticker, timeframe):
     timeframe['Daily change [%]'] = (timeframe['Close'] / timeframe['Open'] - 1) * 100
     timeframe['Total change [%]'] = (timeframe['Close'] / timeframe['Close'].iloc[0] - 1) * 100
 
-def biggest_changes(timeframe, num_of_biggest_changes):
-    if num_of_biggest_changes <= len(timeframe):
+def biggest_change(timeframe):
+    if len(timeframe) >= 1:
         timeframe_copy = timeframe.copy()
         timeframe_sorted = timeframe_copy.reindex(
             timeframe_copy['Daily change [%]'].abs().sort_values(ascending=False).index
         )
-        return timeframe_sorted.head(num_of_biggest_changes).reset_index(drop=True)
+        return timeframe_sorted.head()
     else:
-        print('num_of_biggest_changes should not be bigger than number of rows in timeframe \n'
-              'Change num_of_biggest_changes in controller.py')
-
+        print('timeframe < 0 - check the date range in the controller!')

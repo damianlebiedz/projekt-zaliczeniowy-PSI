@@ -10,3 +10,4 @@ torch
 huggingface_hub[hf_xet]
 nltk
 scikit-learn
+numpy
