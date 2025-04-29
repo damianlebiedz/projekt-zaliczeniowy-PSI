@@ -1,27 +1,24 @@
-# Sentiment analysis
+# Sentiment Analysis
 
-This project is created to analyze sentiment of textual data from Reddit r/wallstreetbets threads in days of high volatility on US stock market measured by VIX index.
-It utilizes data science techniques including sentiment analysis with DistilBERT model and data visualization (charts, wordclouds, UMAP).
-The project adheres to Reproducible Research standards and software engineering best practices.
+This project is created to analyze sentiment of textual data from Reddit r/wallstreetbets threads in day of the highest volatility on US stock market measured by VIX index.
+It utilizes data science techniques including sentiment analysis with DistilBERT model, PCA & KMeans Clustering and data visualization with plots/wordclouds.
+The project adheres to Reproducible Research standards.
 
 > [!TIP]
 > In SRS.md file you can check the Software Requirements Specification of the project.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- [Functionalities](#functionalities)
 - [Technologies](#technologies)
 - [Setup](#setup)
 - [Installation](#installation)
-- [View](#view)
 - [Contact](#contact)
-
-## Functionalities
 
 ## Technologies
 - Python 3.13
 - Jupyter Notebook
 - DistilBERT
+- PCA & Kmeans Clustering
 
 ## Setup
 > [!NOTE]
@@ -38,9 +35,9 @@ Navigate to the Reddit developer apps page by going to https://www.reddit.com/pr
 3. Scroll down to the "Developed Applications" section and click "Create App" or "Create Another App".
 
 Fill in the required fields:
-- Name: Choose a name for your app, e.g., reddit-sentiment-analyzer.
+- Name: Choose a name for your app.
 - App type: Select "script". This is because we are creating a personal script to interact with Reddit's API.
-- Description: (Optional) Write a brief description of what the app does (e.g., "Analyzing sentiment of comments from Reddit").
+- Description: (Optional) Write a brief description of what the app does.
 - Redirect URI: Enter http://localhost:8080 (or any valid URL, but it must match the one you’ll use in your script).
 - Permissions: You can leave these as default for now.
 
@@ -55,7 +52,7 @@ Once the application is created, you will see the following information on the a
 5. Store Your Credentials Safely
 Open a text editor or your project's configuration and create a .env file (if it doesn't exist).
 
-Inside the `.env` file, add your REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET as follows:
+In the project directory create an `.env` file with the following lines of REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET as follows:
 
 ```
 REDDIT_CLIENT_ID=your_client_id_here
@@ -98,8 +95,6 @@ jupyter notebook
 ```
 > [!IMPORTANT]
 > You must be inside the project directory to launch `jupyter notebook`!
-
-## View
 
 ## Contact
 Damian Lebiedź | https://damianlebiedz.github.io/contact.html
