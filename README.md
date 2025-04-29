@@ -16,6 +16,7 @@ The project adheres to Reproducible Research standards.
 
 ## Technologies
 - Python 3.13
+- Reddit API
 - Jupyter Notebook
 - DistilBERT
 - PCA & Kmeans Clustering
