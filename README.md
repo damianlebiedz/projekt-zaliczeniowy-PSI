@@ -5,7 +5,7 @@ It utilizes data science techniques including sentiment analysis with DistilBERT
 The project adheres to Reproducible Research standards.
 
 > [!TIP]
-> In SRS.pdf file you can check the Software Requirements Specification of the project.
+> In `docs/SRS.pdf` file you can check the Software Requirements Specification of the project.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -24,7 +24,7 @@ The project adheres to Reproducible Research standards.
 
 ## Setup
 > [!NOTE]
-> In `controller.py` you can customize input data (different timeframe, stock etc.)
+> In `modules/controller.py` you can customize input data (different timeframe, stock etc.)
 
 ### Setup of Reddit API
 
