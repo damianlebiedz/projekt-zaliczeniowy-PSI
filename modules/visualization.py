@@ -18,6 +18,7 @@ def stock_plot(timeframe, column, ticker):
         plt.ylabel(f'{column}')
         plt.legend()
         plt.grid()
+        plt.savefig(f"output/{column}.png")
         plt.show()
 
     except Exception as e:
@@ -47,6 +48,7 @@ def plot_wordcloud(df, date, text_column='text', cluster_column=None, stopwords=
         plt.axis('off')
         if title:
             plt.title(title)
+        plt.savefig(f"output/{title}.png")
         plt.show()
 
     if cluster_column:
@@ -78,4 +80,5 @@ def plot_sentiment(sentiment, date):
     ax.set_yticks([])
     ax.set_xlim(-1, 1)
     ax.set_title(f'Overall weighted sentiment for the day {date}: {sentiment:.3f}')
+    plt.savefig(f"output/Sentiment for {date}.png")
     plt.show()
